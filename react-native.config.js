@@ -1,13 +1,12 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  dependency: {
-    platforms: {
-      ios: {},
-      android: {
-      	packageImportPath: 'import tech.power.RNBraintreeDropIn.RNBraintreeDropInPackage;',
-        packageInstance: 'new RNBraintreeDropInPackage()',
-      },
+    dependency: {
+        platforms: {
+            android: {
+                packageImportPath: "import tech.power.RNBraintreeDropIn.RNBraintreeDropInPackage;",
+                packageInstance: "new RNBraintreeDropInPackage()",
+            },
+        },
     },
-  },
 };
