@@ -1,9 +1,18 @@
-import { NativeModules } from "react-native";
+import { Platform, NativeModules } from "react-native";
 
-const { RNBraintreeDropIn } = NativeModules;
+let RNBraintreeDropIn;
 
-if (Platform.OS !== "android") {
-    throw new Error("Module is only available on Android.");
+if (Platform.OS === "android") {
+    RNBraintreeDropIn = NativeModules.RNBraintreeDropIn;
+} else {
+    RNBraintreeDropIn = new Proxy(
+        {},
+        {
+            get() {
+                throw new Error("RNBraintreeDropIn is only available on Android.");
+            },
+        }
+    );
 }
 
 export default RNBraintreeDropIn;
